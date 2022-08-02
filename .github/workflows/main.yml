@@ -27,12 +27,12 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore SW.VideoProcessingService.TacticalSolutionApp.sln
+        run: dotnet restore SW.VideoProcessingService.sln
       - name: Build
-        run: dotnet build SW.VideoProcessingService.TacticalSolutionApp.sln --configuration Release --no-restore
-      - name: Test
-        run: dotnet test SW.VideoProcessingService.Core.Tests.csproj --no-restore --verbosity normal
-        working-directory: SW.VideoProcessingService.Core.Tests
+        run: dotnet build SW.VideoProcessingService.sln --configuration Release --no-restore
+      #- name: Test
+      #  run: dotnet test SW.VideoProcessingService.Core.Tests.csproj --no-restore --verbosity normal
+      #  working-directory: SW.VideoProcessingService.Core.Tests
         
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
